@@ -1,0 +1,31 @@
+
+{
+  "productos": [
+    { "id": "1", "titulo": "Te Rojo", "price": "360", "stock": "100" },
+    {
+      "id": "2",
+      "titulo": "Te Negro",
+      "price": "360",
+      "stock": "100"
+    },
+    {
+      "id": "3",
+      "titulo": "Te Verde",
+      "price": "360",
+      "stock": "100"
+    },
+    {
+      "id": "4",
+      "titulo": "Te Pu Erh",
+      "price": "360",
+      "stock": "100"
+    },
+    {
+      "id": "5",
+      "titulo": "Te Rubio",
+      "price": "360",
+      "stock": "100"
+    }
+  ]
+}
+
