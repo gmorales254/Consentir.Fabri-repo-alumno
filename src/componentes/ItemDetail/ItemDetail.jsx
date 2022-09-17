@@ -12,7 +12,7 @@ const ItemDetail = ({items}) => {
     function onAdd (quantity) {
         setcounter (quantity);
 
-        addItem(items, quantity);
+        addItem(items, quantity,);
     }
   return (
     <div className="container rem-4 rem-lg-5 mt-5">
