@@ -15,7 +15,7 @@ export function CartProvider ({children}) {
        
         setCarrito (...aux);
       }else{
-        setCarrito ([...carrito, {...items, quantity,total}]);
+        setCarrito ([...carrito, {...items, quantity}]);
       }
       
      }
@@ -24,17 +24,17 @@ export function CartProvider ({children}) {
         setCarrito([]);
 
     }
-    let total = carrito.reduce((price,items)=>price + items.price * items.quantity,0);
+  
    
     const removeItem = (id) => {setCarrito(carrito.filter(element =>element.id))};
 
     function isInCart (itemsId) {
-        carrito.find((element)=>element.id ===itemsId);
+        carrito.find((element)=>element.id !=itemsId);
 }
 
 
 return (
-    <CartContext.Provider value = {{addItem,removeItem,clear,carrito,total}}>
+    <CartContext.Provider value = {{addItem,removeItem,clear,carrito}}>
     {children}
     </CartContext.Provider>
 )

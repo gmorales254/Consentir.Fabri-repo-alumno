@@ -9,21 +9,21 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
   ///////CONSUMIR API////////////////////////////////
-  const obtnerDatos = async () => {
-    try {
-     const res = await fetch("https://pokeapi.co/api/v2/pokemon")
-    let dato= await res.json();
-     console.log(dato.results)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const obtnerDatos = async () => {
+  //   try {
+  //    const res = await fetch("https://pokeapi.co/api/v2/pokemon")
+  //   let dato= await res.json();
+  //    console.log(dato.results)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   
 
-  useEffect(() => {
-    obtnerDatos()
-       fetch("https://pokeapi.co/api/v2/pokemon").then((res) =>  res.json()).then((res) => console.log(res.results))
-     },[])
+  // useEffect(() => {
+  //   obtnerDatos()
+  //      fetch("https://pokeapi.co/api/v2/pokemon").then((res) =>  res.json()).then((res) => console.log(res.results))
+  //    },[])
   
 
      //////////PRODUCTOS////////
