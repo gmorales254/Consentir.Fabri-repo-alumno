@@ -12,14 +12,14 @@ export default function ItemDetailContainer() {
       {
         id: "1",
         titulo: "Te Rojo",
-        price: "$360",
+        price: 360,
         stock: "100",
         img: "/assets/Imagenes/TE ROJO.png",
       },
       {
         id: "2",
         titulo: "TE NEGRO ROSAS",
-        price: "$360",
+        price: 360,
         stock: "100",
         img: "/assets/Imagenes/TE NEGRO ROSAS.png",
       },

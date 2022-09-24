@@ -10,7 +10,7 @@ export function CartProvider ({children}) {
         
       if (isInCart(items.id)){
         let aux= carrito;
-        let itemsIndex= aux.indexOf((element)=>element.id === items.id);
+        let itemsIndex= aux.findIndex((element)=>element.id === items.id);
         aux[itemsIndex].quantity += quantity;
        
         setCarrito (...aux);
@@ -24,17 +24,21 @@ export function CartProvider ({children}) {
         setCarrito([]);
 
     }
-  
-   
-    const removeItem = (id) => {setCarrito(carrito.filter(element =>element.id))};
+    const Total= ()=>{
+      return  carrito.reduce((pv,av)=>pv + av.price * av.quantity,0)
+    }
+    function removeItem(id) {
+      
+    setCarrito(carrito.filter((element) =>element.id !=id))};
 
+   
     function isInCart (itemsId) {
-        carrito.find((element)=>element.id !=itemsId);
+        carrito.find((element)=>element.id ===itemsId);
 }
 
 
 return (
-    <CartContext.Provider value = {{addItem,removeItem,clear,carrito}}>
+    <CartContext.Provider value = {{addItem,removeItem,clear,carrito,Total}}>
     {children}
     </CartContext.Provider>
 )
