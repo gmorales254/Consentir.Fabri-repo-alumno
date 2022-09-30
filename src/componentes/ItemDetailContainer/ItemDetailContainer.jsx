@@ -17,7 +17,8 @@ export default function ItemDetailContainer() {
       const dbItem = await getDoc(
         doc(db,COLLECTION_TE,id)
       );
-      setItem(dbItem.data());
+      console.log('dbItem', dbItem);
+      setItem({...dbItem.data(), id:dbItem.id});
       setLoading(false);
     };
 
