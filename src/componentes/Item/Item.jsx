@@ -1,26 +1,27 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import {Link} from 'react-router-dom';
 
 function Item({ id, titulo, price, img }) {
   return (
-    // <Link to={`/item/${id}`}>
-    <Row xs={1} md={2} className="g-4">
-      <Col>
-        <Card style={{ width: "16rem" }}>
-          <Link to={`/item/${id}`}>
-            <Card.Img variant="top" src={img} />
+
+    <div className="col-12 col-md-6 col-lg-4">
+    <div className="cols-3">
+      <div className="card">
+        <Link to={`/item/${id}`}>
+        <img src={img} className="card-img-top"
+          alt={titulo} />
           </Link>
-          <Card.Body>
-            <Card.Title>{titulo}</Card.Title>
-            <Card.Text>${price}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
-    // </Link>
+        <div className="card-body">
+          <h5 className="card-title">{titulo}-{id}</h5>
+          <p className="card-text">
+          $ {price}
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
   );
 }
   

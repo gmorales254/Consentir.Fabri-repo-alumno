@@ -1,17 +1,29 @@
-import React, {useContext} from 'react'
-import {Button} from 'react-bootstrap';
-import { CartContext } from '../Context/CartContext';
+import React, { useContext } from "react";
+import { Button } from "react-bootstrap";
+import { CartContext } from "../Context/CartContext";
+import isEmpty from "lodash/isEmpty";
 
 export const CartWidget = () => {
-    
-    const{carrito} =useContext(CartContext)
- 
-    return (
-        <Button className="m-3" type="button" variant="primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bag-heart" viewBox="0 0 16 / 6">
-        <path d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.1 32Z" /></svg>
-        {!carrito.lenght && <span>{carrito.reduce((pv, cv) => pv + cv.quantity, 0)}</span>}</Button>
-      )
-      
-}
+  const { carrito } = useContext(CartContext);
 
+  const totalAmount = !isEmpty(carrito) && (
+    <span>{carrito.reduce((pv, cv) => pv + cv.quantity, 0)}</span>
+  );
 
+  return (
+    <Button className="m-3" type="button" variant="primary">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-bag-heart-fill"
+        viewBox="0 0 16 16"
+      >
+        <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+      </svg>
+
+      {totalAmount}
+    </Button>
+  );
+};
