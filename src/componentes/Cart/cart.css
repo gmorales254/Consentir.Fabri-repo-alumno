@@ -1,0 +1,18 @@
+.remover{
+    background-color: crimson;
+    color:white ;
+    margin-left:25px;
+}
+
+.vaciar{
+    margin:10px;
+}
+
+.finalizar{
+    margin: 10px;
+}
+.volver{
+    position:relative;
+    bottom: -50px;
+    right: 100px;
+}

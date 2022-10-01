@@ -18,7 +18,7 @@ function ItemListContainer() {
       const querySnapshot = await getDocs(collection(db, COLLECTION_TE));
       const productos = [];
       querySnapshot.forEach((doc) => {
-        productos.push(doc.data());
+        productos.push({...doc.data(), id: doc.id});
       });
 
       console.log('PRODUCTOS', productos);

@@ -21,7 +21,7 @@ export const Category = () => {
       const querySnapshot = await getDocs(queryRef);
       const productos = [];
       querySnapshot.forEach((doc) => {
-        productos.push(doc.data());
+        productos.push({...doc.data(), id: doc.id});
       });
 
       console.log("productos", productos);

@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
+import  "./cart.css"
 
 export const Cart = () => {
   const { carrito, clear, removeItem, total } = useContext(CartContext);
@@ -13,27 +14,28 @@ export const Cart = () => {
           <>
             <span>Carrito Vacio</span>
             <Link to="/">
-              <Button>Volver a inicio</Button>
+              <Button className="volver">Volver a inicio</Button>
             </Link>
           </>
         ) : (
           <>
-            <ol>
+            <ol className="carrito">
               {carrito.map((items, indx) => (
                 <li key={indx}>
                   {items?.titulo}
                   {items?.quantity}
+                  {items.img}
 
-                  <Button onClick={() => removeItem(items.id)}>
+                  <button className="remover"onClick={() => removeItem(items.id)}>
                     Remover Producto
-                  </Button>
+                  </button>
                 </li>
               ))}
             </ol>
             <h2> $ {total()}</h2>
-            <Button onClick={clear}>Vaciar el Carrito</Button>
+            <Button className="vaciar"onClick={clear}>Vaciar el Carrito</Button>
             <Link to="/Checkout">
-              <Button>Finalizar compra</Button>
+              <Button className="finalizar">Finalizar compra</Button>
             </Link>
           </>
         )}

@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../../Firebase/firebaseConfig";
 import {COLLECTION_PEDIDOS} from "../../constants";
+import Swal from "sweetalert2";
+
 
 export const CheckOut = () => {
   const { carrito, total } = useContext(CartContext);
@@ -14,6 +16,12 @@ export const CheckOut = () => {
   const [email, setEmail] = useState(" ");
 
   const handleClick = (e) => {
+    Swal.fire({
+      title:'Compra Exitosa',
+      icon: 'success',
+      timer: 2000,
+      background: '#DAF7A6',
+      })
     e.preventDefault();
     const totalShop = total();
     const pedido = {
@@ -35,6 +43,7 @@ export const CheckOut = () => {
         <Form.Control
           type="nombre"
           placeholder="Ingrese Nombre"
+      
           onChange={(e) => setNombre(e.target.value)}
         />
       </Form.Group>
@@ -59,8 +68,7 @@ export const CheckOut = () => {
           onChange={(e) => setTelefono(e.target.value)}
         />
       </Form.Group>
-
-      <Button onClick={handleClick} variant="primary" type="submit">
+      <Button className="comprar"onClick={handleClick} variant="primary" type="submit">
         Comprar
       </Button>
     </Form>
