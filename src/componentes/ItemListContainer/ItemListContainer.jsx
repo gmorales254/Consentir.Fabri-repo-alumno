@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import Spinner from "react-bootstrap/Spinner";
 import { useParams } from "react-router-dom";
-import {COLLECTION_TE} from "../../constants";
+import { COLLECTION_TE } from "../../constants";
 
 function ItemListContainer() {
   const [item, setItem] = useState([]);
@@ -18,10 +18,10 @@ function ItemListContainer() {
       const querySnapshot = await getDocs(collection(db, COLLECTION_TE));
       const productos = [];
       querySnapshot.forEach((doc) => {
-        productos.push({...doc.data(), id: doc.id});
+        productos.push({ ...doc.data(), id: doc.id });
       });
 
-      console.log('PRODUCTOS', productos);
+      // console.log('PRODUCTOS', productos);
 
       if (!category) {
         setItem(productos);
