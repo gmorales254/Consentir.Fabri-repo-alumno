@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "../Context/CartContext";
 import isEmpty from "lodash/isEmpty";
 
-export const CartWidget = () => {
+export default function CartWidget() {
   const { carrito } = useContext(CartContext);
 
   const totalAmount = !isEmpty(carrito) && (
@@ -26,4 +26,4 @@ export const CartWidget = () => {
       {totalAmount}
     </Button>
   );
-};
+}
